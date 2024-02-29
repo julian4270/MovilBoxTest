@@ -15,6 +15,7 @@
  */
 package com.julicas.movilboxtest.ui.screens
 
+import android.annotation.SuppressLint
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -42,9 +43,9 @@ class ProductsViewModel : ViewModel() {
     /**
      * Call getProducts() on init so we can display status immediately.
      */
-    init {
-        getProducts()
-    }
+//    init {
+//        getProducts()
+//    }
 
     init {
         getCategories()
@@ -54,13 +55,16 @@ class ProductsViewModel : ViewModel() {
      * Gets Products photos information from the Porduct BASE_URL API Retrofit service and updates the
      */
 
+    @SuppressLint("SuspiciousIndentation")
     fun getProducts() {
         viewModelScope.launch {
             productsUiState = ProductsUiState.Loading
-            productsUiState = try {
-                val listResult = ProductsApi.retrofitService.getProducts()
+            productsUiState =
+                try {
+                val listProducts = ProductsApi.retrofitService.getProducts()
+                    System.out.println(listProducts)
                 ProductsUiState.Success(
-                    "Success: ${listResult.size} Products retrieved"
+                    "Success: ${listProducts.size} Products retrieved"
                 )
             } catch (e: IOException) {
                 ProductsUiState.Error
@@ -69,12 +73,13 @@ class ProductsViewModel : ViewModel() {
             }
         }
     }
-
+    @SuppressLint("SuspiciousIndentation")
     fun getCategories() {
         viewModelScope.launch {
             productsUiState = ProductsUiState.Loading
             productsUiState = try {
                 val listResult = ProductsApi.CategoriesApi.retrofitService.getCategories()
+                System.out.println(listResult)
                 ProductsUiState.Success(
                     "Success: ${listResult.size} Categories retrieved"
                 )
