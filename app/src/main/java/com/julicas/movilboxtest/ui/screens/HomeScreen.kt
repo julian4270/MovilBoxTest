@@ -73,7 +73,7 @@ fun ErrorScreen(modifier: Modifier = Modifier) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Image(
-            painter = painterResource(id = R.drawable.ic_connection_error), contentDescription = ""
+            painter = painterResource(id = R.drawable.ic_connection_error), contentDescription = "Error Images"
         )
         Text(text = stringResource(R.string.loading_failed), modifier = Modifier.padding(16.dp))
     }
@@ -83,12 +83,12 @@ fun ErrorScreen(modifier: Modifier = Modifier) {
  * ResultScreen displaying number of photos retrieved.
  */
 @Composable
-fun ResultScreen(photos: String, modifier: Modifier = Modifier) {
+fun ResultScreen(pictures: String, modifier: Modifier = Modifier) {
     Box(
         contentAlignment = Alignment.Center,
         modifier = modifier
     ) {
-        Text(text = photos)
+        Text(text = pictures)
     }
 }
 

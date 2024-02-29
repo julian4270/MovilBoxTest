@@ -76,7 +76,7 @@ class ProductsViewModel : ViewModel() {
             productsUiState = try {
                 val listResult = ProductsApi.CategoriesApi.retrofitService.getCategories()
                 ProductsUiState.Success(
-                    "Success: ${listResult.size} Products retrieved"
+                    "Success: ${listResult.size} Categories retrieved"
                 )
             } catch (e: IOException) {
                 ProductsUiState.Error

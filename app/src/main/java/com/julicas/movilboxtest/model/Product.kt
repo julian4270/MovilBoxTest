@@ -1,8 +1,12 @@
 package com.julicas.movilboxtest.model
+
+import kotlinx.serialization.Serializable
+
 /**
  * Data class Product
  * return Images list
  */
+@Serializable
 data class Product(
     val brand: String,
     val category: String,

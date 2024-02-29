@@ -11,7 +11,7 @@ import retrofit2.http.GET
  * API Constant endpoint Dummy URL
  */
     private const val BASE_URL =
-        "https://dummyjson.com"
+        "https://dummyjson.com/"
 
 /**
  * Use the Retrofit builder to build a retrofit object using a kotlinx.serialization converter

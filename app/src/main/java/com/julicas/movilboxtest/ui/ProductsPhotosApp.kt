@@ -36,6 +36,7 @@ import com.julicas.movilboxtest.R
 import com.julicas.movilboxtest.ui.screens.HomeScreen
 import com.julicas.movilboxtest.ui.screens.ProductsViewModel
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ProductsPhotosApp() {
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
@@ -55,6 +56,7 @@ fun ProductsPhotosApp() {
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ProductsTopAppBar(scrollBehavior: TopAppBarScrollBehavior, modifier: Modifier = Modifier) {
     CenterAlignedTopAppBar(
