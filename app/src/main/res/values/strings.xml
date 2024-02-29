@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">MovilBoxTest</string>
+    <string name="action_settings">https://dummyjson.com/products</string>
+    <string name="first_fragment_label">Products</string>
+    <string name="second_fragment_label">View Products</string>
+    <string name="comprar">Comprar producto</string>
+    <string name="previous">Previous</string>
+    <string name="lblproducts">
+        PRODUCTS
+    </string>
+<string name="cellphones">https://dummyjson.com/products</string>
+    <string name="categories">https://dummyjson.com/products/categories</string>
+</resources>
