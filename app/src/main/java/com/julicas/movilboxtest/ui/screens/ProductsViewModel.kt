@@ -51,9 +51,9 @@ class ProductsViewModel : ViewModel() {
     }
 
     /**
-     * Gets Mars photos information from the Mars API Retrofit service and updates the
-     * [MarsPhoto] [List] [MutableList].
+     * Gets Products photos information from the Porduct BASE_URL API Retrofit service and updates the
      */
+
     fun getProducts() {
         viewModelScope.launch {
             productsUiState = ProductsUiState.Loading
