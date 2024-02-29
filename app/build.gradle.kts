@@ -36,7 +36,6 @@ android {
     }
     buildFeatures {
         compose = true
-      //  viewBinding = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.8"
@@ -83,6 +82,17 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
+
+    //Rooms DataBase
+    val room_version = "2.6.1"
+    implementation("androidx.room:room-runtime:$room_version")
+    annotationProcessor("androidx.room:room-compiler:$room_version")
+    implementation("androidx.room:room-ktx:$room_version")
+    implementation("androidx.room:room-rxjava2:$room_version")
+    implementation("androidx.room:room-rxjava3:$room_version")
+    implementation("androidx.room:room-guava:$room_version")
+    testImplementation("androidx.room:room-testing:$room_version")
+    implementation("androidx.room:room-paging:$room_version")
 
     // Debug
     debugImplementation("androidx.compose.ui:ui-test-manifest")
