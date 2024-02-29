@@ -4,10 +4,20 @@
     <string name="first_fragment_label">Products</string>
     <string name="second_fragment_label">View Products</string>
     <string name="comprar">Buy</string>
-    <string name="previous">Previous</string>
+    <string name="previous">Keep buying</string>
     <string name="lblproducts">
-        PRODUCTS
+        Basket
     </string>
     <string name="cellphones">Settings</string>
     <string name="categories">https://dummyjson.com/products/categories</string>
+    <string name="productos">PRODUCTOS</string>
+    <string name="buy">Buy</string>
+    <string name="marca_producto">Marca producto</string>
+    <string name="precio">Precio $</string>
+    <string name="img">img</string>
+    <string name="codigo">Code</string>
+    <string name="buscar_producto">Search</string>
+    <string name="producto">Productos</string>
+    <string name="descripci_n">Marca</string>
+    <string name="todo" />
 </resources>
