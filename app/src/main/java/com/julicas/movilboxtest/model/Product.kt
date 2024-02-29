@@ -1,5 +1,8 @@
 package com.julicas.movilboxtest.model
-
+/**
+ * Data class Product
+ * return Images list
+ */
 data class Product(
     val brand: String,
     val category: String,
