@@ -2,7 +2,6 @@ package com.julicas.movilboxtest.network
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.julicas.movilboxtest.model.Categories
-import com.julicas.movilboxtest.model.Product
 import com.julicas.movilboxtest.model.Products
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
@@ -21,11 +20,6 @@ import retrofit2.http.GET
 interface ProductsApiService {
     @GET("products")
     suspend fun getProducts(): List<Products>
-}
-
-interface ProductApiService {
-    @GET("product")
-    suspend fun getProducts(): List<Product>
 }
 
 interface CategoriesApiService {
