@@ -43,10 +43,12 @@ fun HomeScreen(
 ) {
     when (productsUiState) {
         is ProductsUiState.Loading -> LoadingScreen(modifier = modifier.fillMaxSize())
-        is ProductsUiState.Success -> ResultScreen(
+        is ProductsUiState.ProductSuccess -> ResultScreen(
             productsUiState.products, modifier = modifier.fillMaxWidth()
         )
         is ProductsUiState.Error -> ErrorScreen( modifier = modifier.fillMaxSize())
+        else -> {
+        }
     }
 }
 
