@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.julicas.movilboxtest.ui.screens
+package com.julicas.movilboxtest.ui.view
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -63,16 +63,16 @@ class ProductsViewModel : ViewModel() {
     private fun getProducts() {
         viewModelScope.launch {
             productsUiState = ProductsUiState.Loading
-            productsUiState =
-                try {val listProducts = ProductsApi.retrofitService.getProducts()
+            productsUiState = try {val listProducts = ProductsApi.retrofitService.getProducts()
                 ProductsUiState.ProductSuccess(
                     "Success: ${listProducts.size} Products retrieved"
                 )
             } catch (e: IOException) {
+                println(e)
                 ProductsUiState.Error
             } catch (e: HttpException) {
                 ProductsUiState.Error
-            }
+            }.also { productsUiState = it }
         }
     }
     /**
@@ -82,9 +82,9 @@ class ProductsViewModel : ViewModel() {
     private fun getCategories() {
         viewModelScope.launch {
             productsUiState = ProductsUiState.Loading
-            productsUiState = try {val listResult = ProductsApi.CategoriesApi.retrofitService.getCategories()
-                ProductsUiState.CategorySuccess(
-                    "Success: ${listResult.size} Categories retrieved"
+            productsUiState = try {val listCategories = ProductsApi.CategoriesApi.retrofitService.getCategories()
+               ProductsUiState.CategorySuccess(
+                    "Success: ${listCategories.size} Categories retrieved"
                 )
             } catch (e: IOException) {
                 ProductsUiState.Error
