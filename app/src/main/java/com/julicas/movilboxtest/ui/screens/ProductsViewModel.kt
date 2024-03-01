@@ -15,7 +15,6 @@
  */
 package com.julicas.movilboxtest.ui.screens
 
-import android.annotation.SuppressLint
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -25,13 +24,14 @@ import com.julicas.movilboxtest.service.ProductsApi
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import java.io.IOException
+import com.julicas.movilboxtest.model.Products
 
 /**
  * UI state for the Home screen
  */
 sealed interface ProductsUiState {
     data class ProductSuccess(val products: String) : ProductsUiState
-    data class CategorieSuccess(val categories: String) : ProductsUiState
+    data class CategorySuccess(val categories: String) : ProductsUiState
     object Error : ProductsUiState
     object Loading : ProductsUiState
 }
@@ -53,18 +53,17 @@ class ProductsViewModel : ViewModel() {
     }
 
     /**
-     * Gets Products photos information from the Porduct BASE_URL API Retrofit service and updates the
+     * Gets Products photos information from the Product BASE_URL API Retrofit service and updates the
      */
     /**
      * Gets Mars photos information from the Mars API Retrofit service and updates the
      * [Products] [List] [MutableList].
      */
-    fun getProducts() {
+    private fun getProducts() {
         viewModelScope.launch {
             productsUiState = ProductsUiState.Loading
             productsUiState =
                 try {val listProducts = ProductsApi.retrofitService.getProducts()
-                    System.out.println(listProducts)
                 ProductsUiState.ProductSuccess(
                     "Success: ${listProducts.size} Products retrieved"
                 )
@@ -79,12 +78,11 @@ class ProductsViewModel : ViewModel() {
      * Gets Mars photos information from the Mars API Retrofit service and updates the
      * [Categories] [List] [MutableList].
      */
-    fun getCategories() {
+    private fun getCategories() {
         viewModelScope.launch {
             productsUiState = ProductsUiState.Loading
             productsUiState = try {val listResult = ProductsApi.CategoriesApi.retrofitService.getCategories()
-                System.out.println(listResult)
-                ProductsUiState.CategorieSuccess(
+                ProductsUiState.CategorySuccess(
                     "Success: ${listResult.size} Categories retrieved"
                 )
             } catch (e: IOException) {
