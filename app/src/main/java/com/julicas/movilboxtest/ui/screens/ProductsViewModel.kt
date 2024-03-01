@@ -25,6 +25,7 @@ import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import java.io.IOException
 import com.julicas.movilboxtest.model.Products
+import com.julicas.movilboxtest.model.Categories
 
 /**
  * UI state for the Home screen
