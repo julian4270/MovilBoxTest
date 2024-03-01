@@ -17,10 +17,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.julicas.movilboxtest.R
 import com.julicas.movilboxtest.ui.view.HomeScreen
-import com.julicas.movilboxtest.ui.view.ProductsViewModel
+import com.julicas.movilboxtest.ui.view.Products
 
 @Composable
-fun ProductsPhotosApp() {
+fun ProductsApp() {
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
     Scaffold(
         modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
@@ -29,9 +29,9 @@ fun ProductsPhotosApp() {
         Surface(
             modifier = Modifier.fillMaxSize()
         ) {
-            val Products: ProductsViewModel = viewModel()
+            val products: Products = viewModel()
             HomeScreen(
-                productsUiState = Products.productsUiState,
+                productsUiState = products.productsUiState,
                 contentPadding = it
             )
         }

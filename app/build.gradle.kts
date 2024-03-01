@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -7,6 +9,12 @@ plugins {
 android {
     namespace = "com.julicas.movilboxtest"
     compileSdk = 34
+
+    tasks.withType<KotlinCompile> {
+        kotlinOptions {
+            freeCompilerArgs += "-Xjsr305=strict"
+        }
+    }
 
     defaultConfig {
         applicationId = "com.julicas.movilboxtest"

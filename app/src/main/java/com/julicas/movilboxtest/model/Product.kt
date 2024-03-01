@@ -1,7 +1,6 @@
 package com.julicas.movilboxtest.model
 
 import kotlinx.serialization.Serializable
-import kotlinx.serialization.SerialName
 /**
  * Data class Product
  * return Images list
@@ -13,7 +12,6 @@ data class Product(
     val description: String,
     val discountPercentage: Double,
     val id: Int,
-    @SerialName(value = "images")
     val images: List<String>,
     val price: Int,
     val rating: Double,

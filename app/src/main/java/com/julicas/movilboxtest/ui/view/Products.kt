@@ -20,12 +20,12 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.julicas.movilboxtest.model.Categories
+import com.julicas.movilboxtest.model.Products
 import com.julicas.movilboxtest.service.ProductsApi
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import java.io.IOException
-import com.julicas.movilboxtest.model.Products
-import com.julicas.movilboxtest.model.Categories
 
 /**
  * UI state for the Home screen
@@ -37,7 +37,7 @@ sealed interface ProductsUiState {
     object Loading : ProductsUiState
 }
 
-class ProductsViewModel : ViewModel() {
+class Products : ViewModel() {
     /** The mutable State that stores the status of the most recent request */
     var productsUiState: ProductsUiState by mutableStateOf(ProductsUiState.Loading)
         private set
@@ -68,7 +68,6 @@ class ProductsViewModel : ViewModel() {
                     "Success: ${listProducts.size} Products retrieved"
                 )
             } catch (e: IOException) {
-                println(e)
                 ProductsUiState.Error
             } catch (e: HttpException) {
                 ProductsUiState.Error
