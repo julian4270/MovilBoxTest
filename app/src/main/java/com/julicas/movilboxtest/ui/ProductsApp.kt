@@ -18,7 +18,9 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.julicas.movilboxtest.R
 import com.julicas.movilboxtest.ui.view.HomeScreen
 import com.julicas.movilboxtest.ui.view.Products
-
+/**
+ * ProductsApp
+ * */
 @Composable
 fun ProductsApp() {
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()

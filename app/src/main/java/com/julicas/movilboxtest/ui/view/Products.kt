@@ -21,14 +21,13 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.julicas.movilboxtest.model.Categories
-import com.julicas.movilboxtest.model.Products
 import com.julicas.movilboxtest.service.ProductsApi
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import java.io.IOException
 
 /**
- * UI state for the Home screen
+ * UI state for the Home screen ProductsUiState
  */
 sealed interface ProductsUiState {
     data class ProductSuccess(val products: String) : ProductsUiState
@@ -48,16 +47,15 @@ class Products : ViewModel() {
     init {
         getProducts()
     }
-
+    /**
+     * Call getCategories() on init so we can display status immediately.
+     */
     init {
         getCategories()
     }
 
     /**
-     * Gets Products photos information from the Product BASE_URL API Retrofit service and updates the
-     */
-    /**
-     * Gets Mars photos information from the Mars API Retrofit service and updates the
+     * Gets Products information from the Product BASE_URL API Retrofit service and updates the
      * [Products] [List] [MutableList].
      */
     private fun getProducts() {
@@ -75,7 +73,7 @@ class Products : ViewModel() {
         }
     }
     /**
-     * Gets Mars photos information from the Mars API Retrofit service and updates the
+     * Gets Categories information from the Product BASE_URL API Retrofit service and updates the
      * [Categories] [List] [MutableList].
      */
     private fun getCategories() {

@@ -4,7 +4,9 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import com.julicas.movilboxtest.entities.Product
-
+/*
+* DaoProducts GET POST PUT @queryes
+* */
 @Dao
 interface DaoProducts {
 

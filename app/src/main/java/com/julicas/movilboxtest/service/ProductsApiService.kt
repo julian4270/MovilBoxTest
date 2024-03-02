@@ -27,17 +27,23 @@ interface ProductsApiService {
     @GET("products")
     suspend fun getProducts(): List<Products>
 }
-
+/**
+ * CategoriesApiService end point
+ */
 interface CategoriesApiService {
     @GET("products/categories")
     suspend fun getCategories(): List<Categories>
 }
-
+/**
+ * ProductsApi Object
+ */
 object ProductsApi {
     val retrofitService: ProductsApiService by lazy {
         retrofit.create(ProductsApiService::class.java)
     }
-
+/**
+* CategoriesApi Object
+*/
     object CategoriesApi {
         val retrofitService: CategoriesApiService by lazy {
             retrofit.create(CategoriesApiService::class.java)

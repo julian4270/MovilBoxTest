@@ -10,7 +10,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.julicas.movilboxtest.R
 import com.julicas.movilboxtest.adapter.AdapterProducts
 import com.julicas.movilboxtest.entities.Product
-
+/*
+* ProductsController got o item_rv_product layaout
+* */
 class ProductsController(
     val listProducts: MutableList<Product>,
     val listener: AdapterProducts

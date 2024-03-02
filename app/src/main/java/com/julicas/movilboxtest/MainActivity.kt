@@ -17,7 +17,9 @@ import com.julicas.movilboxtest.ui.theme.ProductsPhotosTheme
 import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
-
+    /**
+     * Room DBProducts: Define Room & Adapter product.
+     * */
     var listproducts: MutableList<Product> = mutableListOf()
     lateinit var adapter: AdapterProducts
     lateinit var room: DBProducts
@@ -28,6 +30,10 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         room = databaseBuilder(this, DBProducts::class.java, "dbProducts").build()
     }
+
+    /**
+     * Room AddProduct: Add a product to Room Database.
+     * */
     private fun AddProduct(room: DBProducts, product: Product) {
         lifecycleScope.launch {
         room.daoProducts().AddProduct(product)
@@ -35,7 +41,9 @@ class MainActivity : ComponentActivity() {
         ClearInputs()
         }
     }
-
+    /**
+     * getProducts API: Call all products from API.
+     * */
     private suspend fun getProducts(room: DBProducts) {
         listproducts = room.daoProducts().getProducts()
         setContent {
@@ -48,7 +56,9 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
-
+    /**
+     * UpdateProduct: Update a product to Room DataBase.
+     * */
     private fun UpdateProduct(room: DBProducts, id: Int, product: String, categorie: String) {
         lifecycleScope.launch {
         room.daoProducts().updateProduct(id,product,categorie)
@@ -56,7 +66,9 @@ class MainActivity : ComponentActivity() {
         ClearInputs()
         }
     }
-
+    /**
+     * DeleteProduct: Delete a product to Room DataBase.
+     * */
     private fun DeleteProduct(room: DBProducts, id: Int) {
         lifecycleScope.launch {
             room.daoProducts().deleteProduct(id)
@@ -64,6 +76,10 @@ class MainActivity : ComponentActivity() {
             ClearInputs()
         }
     }
+
+    /**
+     * ClearInputs: Clear inputs to UI.
+     * */
     private fun ClearInputs() {
         product.product = ""
         product.categorie = ""

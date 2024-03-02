@@ -34,7 +34,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.julicas.movilboxtest.R
 import com.julicas.movilboxtest.ui.theme.ProductsPhotosTheme
-
+/*
+* HomeScreen
+* */
 @Composable
 fun HomeScreen(
     productsUiState: ProductsUiState,
@@ -93,7 +95,9 @@ fun ResultScreen(pictures: String, modifier: Modifier = Modifier) {
         Text(text = pictures)
     }
 }
-
+/*
+* LoadingScreenPreview layout
+* */
 @Preview(showBackground = true)
 @Composable
 fun LoadingScreenPreview() {
@@ -101,7 +105,9 @@ fun LoadingScreenPreview() {
         LoadingScreen()
     }
 }
-
+/*
+* ErrorScreenPreview layout
+* */
 @Preview(showBackground = true)
 @Composable
 fun ErrorScreenPreview() {
@@ -109,7 +115,9 @@ fun ErrorScreenPreview() {
         ErrorScreen()
     }
 }
-
+/*
+* PhotosGridScreenPreview
+* */
 @Preview(showBackground = true)
 @Composable
 fun PhotosGridScreenPreview() {
